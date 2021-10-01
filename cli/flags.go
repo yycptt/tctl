@@ -250,13 +250,15 @@ const (
 
 var flagsForExecution = []cli.Flag{
 	&cli.StringFlag{
-		Name:     FlagWorkflowIDWithAlias,
+		Name:     FlagWorkflowID,
+		Aliases:  []string{"w"},
 		Usage:    "WorkflowId",
 		Required: true,
 	},
 	&cli.StringFlag{
-		Name:  FlagRunIDWithAlias,
-		Usage: "RunId",
+		Name:    FlagRunID,
+		Aliases: []string{"r"},
+		Usage:   "RunId",
 	},
 }
 

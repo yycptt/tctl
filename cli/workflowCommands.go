@@ -718,8 +718,8 @@ func ListArchivedWorkflow(c *cli.Context) error {
 
 // DescribeWorkflow show information about the specified workflow execution
 func DescribeWorkflow(c *cli.Context) error {
-	wid := c.String(FlagWorkflowIDWithAlias)
-	rid := c.String(FlagRunIDWithAlias)
+	wid := c.String(FlagWorkflowID)
+	rid := c.String(FlagRunID)
 
 	frontendClient := cFactory.FrontendClient(c)
 	namespace, err := getRequiredGlobalOption(c, FlagNamespace)
@@ -911,16 +911,16 @@ func scanWorkflowExecutions(sdkClient sdkclient.Client, pageSize int, nextPageTo
 
 // ShowHistory shows the history of given workflow execution based on workflowID and runID.
 func ShowHistory(c *cli.Context) error {
-	wid := c.String(FlagWorkflowIDWithAlias)
-	rid := c.String(FlagRunIDWithAlias)
+	wid := c.String(FlagWorkflowID)
+	rid := c.String(FlagRunID)
 
 	return printWorkflowProgress(c, wid, rid, false)
 }
 
 // ObserveHistory show the process of running workflow
 func ObserveHistory(c *cli.Context) error {
-	wid := c.String(FlagWorkflowIDWithAlias)
-	rid := c.String(FlagRunIDWithAlias)
+	wid := c.String(FlagWorkflowID)
+	rid := c.String(FlagRunID)
 
 	return printWorkflowProgress(c, wid, rid, true)
 }
